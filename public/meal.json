@@ -1,0 +1,69 @@
+[
+  {
+    "meal_title": "Veggie Omelette",
+    "meal_category": "breakfast",
+    "meal_image": "veggie_omelette.jpg",
+    "ingredients": ["eggs", "bell peppers", "onions", "cheese"],
+    "description": "A delicious and healthy omelette with fresh veggies and cheese.",
+    "price": 9.99,
+    "rating": 4.5,
+    "time": "8:00 AM",
+    "likes_count": 120,
+    "reviews": 15,
+    "distributor_name": "Fresh Eats",
+    "distributor_email": "info@fresheats.com"
+  },
+  {
+    "meal_title": "Chicken Caesar Salad",
+    "meal_category": "lunch",
+    "meal_image": "chicken_caesar_salad.jpg",
+    "ingredients": [
+      "chicken breast",
+      "romaine lettuce",
+      "croutons",
+      "parmesan",
+      "caesar dressing"
+    ],
+    "description": "A classic Caesar salad with grilled chicken for a satisfying lunch.",
+    "price": 12.99,
+    "rating": 4.8,
+    "time": "12:30 PM",
+    "likes_count": 180,
+    "reviews": 20,
+    "distributor_name": "Healthy Bites",
+    "distributor_email": "info@healthybites.com"
+  },
+  {
+    "meal_title": "Shrimp Scampi Pasta",
+    "meal_category": "dinner",
+    "meal_image": "shrimp_scampi_pasta.jpg",
+    "ingredients": ["shrimp", "linguine pasta", "garlic", "lemon", "parsley"],
+    "description": "A savory and garlicky shrimp scampi served over a bed of linguine pasta.",
+    "price": 15.99,
+    "rating": 4.6,
+    "time": "7:00 PM",
+    "likes_count": 150,
+    "reviews": 10,
+    "distributor_name": "Taste Delight",
+    "distributor_email": "info@tastedelight.com"
+  },
+  {
+    "meal_title": "Avocado Toast",
+    "meal_category": "breakfast",
+    "meal_image": "avocado_toast.jpg",
+    "ingredients": [
+      "avocado",
+      "whole grain bread",
+      "poached egg",
+      "cherry tomatoes"
+    ],
+    "description": "A trendy and nutritious breakfast option featuring creamy avocado on toast.",
+    "price": 8.49,
+    "rating": 4.2,
+    "time": "9:30 AM",
+    "likes_count": 90,
+    "reviews": 12,
+    "distributor_name": "Green Eats",
+    "distributor_email": "info@greeneats.com"
+  }
+]

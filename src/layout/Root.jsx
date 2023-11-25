@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "../layout/footer/Footer";
 const Root = () => {
   return (
-    <div>
+    <div className="relative">
       <Header />
       <Outlet />
       <Footer />

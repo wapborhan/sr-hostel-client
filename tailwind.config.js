@@ -2,7 +2,16 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        prime: "#ffd44c",
+      },
+    },
+    fontFamily: {
+      dancing: ["Dancing Script", "cursive"],
+      courgette: ["Courgette", "cursive"],
+      raleway: ["Raleway", "sans-serif"],
+    },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
