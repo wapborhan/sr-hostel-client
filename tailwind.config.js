@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         prime: "#ffd44c",
+        second: "#e9c051",
       },
     },
     fontFamily: {
