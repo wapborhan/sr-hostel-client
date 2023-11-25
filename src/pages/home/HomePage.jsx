@@ -1,6 +1,8 @@
 import About from "./about/About";
 import Banner from "./banner/Banner";
+import MealTime from "./meal-time/MealTime";
 import Menu from "./menu/Menu";
+import Promo from "./promo/Promo";
 import Secret from "./secret/Secret";
 import Services from "./services/Services";
 
@@ -12,6 +14,7 @@ const HomePage = () => {
       <About />
       <Menu />
       <Secret />
+      <MealTime />
     </>
   );
 };
