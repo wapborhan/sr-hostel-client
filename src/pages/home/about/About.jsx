@@ -15,10 +15,10 @@ const About = () => {
         </div>
         <div className="right flex justify-center gap-8">
           <div className="circle">
-            <img src="/images/food-circle-2.png" alt="" />
+            <img src="https://i.ibb.co/8cWVWzG/food-circle-2.png" alt="" />
           </div>
           <div className="circle">
-            <img src="/images/food-circle-4.png" alt="" />
+            <img src="https://i.ibb.co/M5DkV1N/food-circle-4.png" alt="" />
           </div>
         </div>
       </div>

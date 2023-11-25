@@ -4,6 +4,23 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+.menu-bg {
+  background-image: url("https://i.ibb.co/M16TJfF/bg-section-18.jpg");
+}
+
+
+
+.section-devider {
+  height: 8px;
+  margin-top: -3px;
+  position: absolute;
+  top: 50%;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-style: solid;
+  border-color: #ffd44c;
+  width: 80px
+}
 
 @tailwind base;
 @tailwind components;
