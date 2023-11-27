@@ -19,7 +19,7 @@ const ManageUsers = () => {
   });
 
   const imageBodyTemplate = (user) => {
-    console.log(user);
+    // console.log(user);
     return (
       <img
         src={user.photo}

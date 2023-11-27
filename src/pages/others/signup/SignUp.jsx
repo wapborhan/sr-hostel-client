@@ -18,7 +18,7 @@ const SignUp = () => {
   const onSubmit = (formData) => {
     createUser(formData.email, formData.password).then((result) => {
       const loggedUser = result.user;
-      console.log(loggedUser);
+      // console.log(loggedUser);
       updateUserProfile(formData.name, formData.photoURL)
         .then(() => {
           const userInfo = {
@@ -31,7 +31,7 @@ const SignUp = () => {
           // console.log(userInfo);
           axiosPublic.post("/user", userInfo).then((res) => {
             if (res.status === 200) {
-              console.log("user added to the database");
+              // console.log("user added to the database");
               reset();
               // Swal.fire({
               //   position: "top-end",

@@ -7,6 +7,8 @@ const AddMeal = () => {
     register,
     handleSubmit,
     control,
+    reset,
+
     formState: { errors },
   } = useForm();
 
@@ -26,18 +28,19 @@ const AddMeal = () => {
       reviews: 0,
       ...data,
     };
-    console.log(inputData);
-    // fetch("https://b8a11-server-side-wapborhan.vercel.app/jobs", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(inputData),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     if (data.insertedId) {
-    //       form.reset();
-    //     }
-    //   });
+    // console.log(inputData);
+    fetch("http://localhost:3300/menu", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(inputData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log(data);
+        if (data.insertedId) {
+          reset();
+        }
+      });
   };
 
   const onSubmitUpcomingMeal = (data) => {
@@ -49,7 +52,7 @@ const AddMeal = () => {
       reviews: 0,
       ...data,
     };
-    console.log(inputData);
+    // console.log(inputData);
 
     // fetch("https://b8a11-server-side-wapborhan.vercel.app/jobs", {
     //   method: "POST",

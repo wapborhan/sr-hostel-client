@@ -12,9 +12,10 @@ const MealDetails = () => {
     distributor_name,
     ingredients,
     likes_count,
+    meal_image,
   } = meals;
 
-  console.log(meals);
+  // console.log(meals);
   return (
     <div>
       <SectionCover title={meal_title} />
@@ -22,11 +23,7 @@ const MealDetails = () => {
         <div className="grid grid-cols-5 my-8 gap-6">
           <div className="col-span-3">
             <div className="image mb-5">
-              <img
-                src="https://max-themes.net/demos/recibo/upload/shutterstock_208221007-750x330.jpg"
-                alt=""
-                className="rounded-md h-52 w-full"
-              />
+              <img src={meal_image} alt="" className="rounded-md h-52 w-full" />
             </div>
 
             <div className="ing">

@@ -3,17 +3,33 @@ import useMenu from "../../../hooks/useMenu";
 import "react-tabs/style/react-tabs.css";
 import MenuTab from "../../../pages/home/menu/MenuTab";
 import SectionCover from "../../../components/shared/section-cover/SectionCover";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Meal = () => {
-  const [menu] = useMenu();
+  const [menu, refetch] = useMenu();
   const [searchInput, setSearchInput] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [filteredMenu, setFilteredMenu] = useState(menu);
 
+  useEffect(() => {
+    // Fetch data when the component mounts
+    refetch();
+  }, []);
+
+  useEffect(() => {
+    // Filter menu based on search input and selected category
+    const filteredItems = menu.filter(
+      (item) =>
+        item.meal_title.toLowerCase().includes(searchInput) &&
+        (selectedCategory === "all" || item.meal_category === selectedCategory)
+    );
+    setFilteredMenu(filteredItems);
+  }, [menu, searchInput, selectedCategory]);
+
   const handleSearchInputChange = (e) => {
+    // refetch();
     const input = e.target.value.toLowerCase();
     setSearchInput(input);
 
@@ -23,11 +39,13 @@ const Meal = () => {
     setFilteredMenu(filteredItems);
   };
   const handleCategoryChange = (e) => {
+    // refetch();
     const category = e.target.value;
     setSelectedCategory(category);
     filterMenu(searchInput, category);
   };
   const filterMenu = (search, category) => {
+    // refetch();
     // Filter menu based on the search input and selected category
     const filteredItems = menu.filter(
       (item) =>
@@ -38,6 +56,8 @@ const Meal = () => {
   };
 
   const applyFilters = () => {
+    refetch();
+
     // Filter menu based on the price range
     const filteredItems = menu.filter(
       (item) =>
