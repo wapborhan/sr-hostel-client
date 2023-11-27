@@ -12,6 +12,7 @@ const NavBardEnd = () => {
       })
       .catch((error) => {
         // An error happened.
+        console.error(error);
       });
     navigate("/");
   };
@@ -54,7 +55,7 @@ const NavBardEnd = () => {
                 </div>
               </li>
               <li>
-                <a>Dashboard</a>
+                <NavLink to="/dashboard">Dashboard</NavLink>
               </li>
               <li>
                 <a onClick={handleSignOut}>Logout</a>

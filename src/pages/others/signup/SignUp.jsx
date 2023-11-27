@@ -26,6 +26,7 @@ const SignUp = () => {
             photo: formData.photoURL,
             email: formData.email,
             badge: "bronze",
+            role: "user",
           };
           // console.log(userInfo);
           axiosPublic.post("/user", userInfo).then((res) => {
