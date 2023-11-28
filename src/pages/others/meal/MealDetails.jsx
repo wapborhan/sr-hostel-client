@@ -3,6 +3,8 @@ import SectionCover from "../../../components/shared/section-cover/SectionCover"
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import moment from "moment/moment";
+import { Rating } from "primereact/rating";
 
 const MealDetails = () => {
   const axiosPublic = useAxiosPublic();
@@ -18,17 +20,18 @@ const MealDetails = () => {
     ingredients,
     likes_count,
     meal_image,
+    time,
   } = meals;
 
   // console.log(meals);
-  const time = new Date();
+  const nowTime = new Date();
 
   const handleRequestMeals = (meals) => {
     const email = user?.email;
     const name = user?.displayName;
 
     const reqMealsData = {
-      req_date: time,
+      req_date: nowTime,
       status: "pending",
       req_email: email,
       req_name: name,
@@ -89,16 +92,30 @@ const MealDetails = () => {
               <h2>
                 Category: <b>{meal_category}</b>
               </h2>
-              <h4 className="rate">Price: {price}</h4>
+              <h4 className="rate">Price: {price} $</h4>
               <div className="flex gap-32">
-                <h4 className="rate">Ratings: {rating}</h4>
+                <h4 className="rate flex gap-4">
+                  Ratings:
+                  <Rating
+                    value={rating}
+                    cancel={false}
+                    pt={{
+                      onIcon: { className: "text-prime" },
+                      officon: {
+                        className: "text-prime",
+                      },
+                    }}
+                  />
+                </h4>
                 <div className="like">
                   <button className="btn btn-outline btn-warning btn-sm">
                     Like: {likes_count}
                   </button>
                 </div>
               </div>
-              <h4 className="rate">Post Time: 12 Jul</h4>
+              <h4 className="rate">
+                Post Time: {moment(time).startOf("hour").fromNow()}
+              </h4>
               {user ? (
                 <>
                   <button
