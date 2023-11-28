@@ -1,7 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import SectionCover from "../../../components/shared/section-cover/SectionCover";
+import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const MealDetails = () => {
+  const { user } = useAuth();
   const meals = useLoaderData();
   const {
     meal_title,
@@ -16,6 +19,18 @@ const MealDetails = () => {
   } = meals;
 
   // console.log(meals);
+
+  const handleRequestMeals = (meals) => {
+    console.log("CLicked", meals);
+  };
+
+  const handleLoginFrist = () => {
+    Swal.fire({
+      icon: "error",
+      title: "You Must Login Frist",
+      footer: '<a href="/signin">Go to Login Page</a>',
+    });
+  };
   return (
     <div>
       <SectionCover title={meal_title} />
@@ -60,9 +75,26 @@ const MealDetails = () => {
                 </div>
               </div>
               <h4 className="rate">Post Time: 12 Jul</h4>
-              <button className="btn btn-outline btn-warning w-full">
-                Meal request
-              </button>
+              {user ? (
+                <>
+                  <button
+                    onClick={() => handleRequestMeals(meals)}
+                    className="btn btn-outline btn-warning w-full"
+                  >
+                    Meal request
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    onClick={handleLoginFrist}
+                    className="btn btn-outline btn-warning w-full"
+                  >
+                    Meal request
+                  </button>
+                </>
+              )}
+
               <div className="reviews">reviews (5)</div>
             </div>
           </div>
