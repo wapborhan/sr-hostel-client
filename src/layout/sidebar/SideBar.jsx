@@ -18,10 +18,13 @@ const SideBar = () => {
   // const [cart] = useCart();
   // const [isAdmin] = useAdmin();
   // console.log(isAdmin);
-  const isAdmin = false;
+  const isAdmin = true;
   return (
     <div className="lg:w-64 md:w-64 lg:min-h-screen md:min-h-screen  bg-prime">
       <ul className="menu p-4 sticky top-0">
+        <div className="img bg-black rounded-lg mb-8">
+          <img src="https://i.ibb.co/cJy2LXX/foot-logo.png" alt="" />
+        </div>
         {isAdmin ? (
           <>
             <li>
@@ -82,33 +85,13 @@ const SideBar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/dashboard/cart">
+              <NavLink to="/dashboard/myreviews">
                 <FaAd></FaAd>
                 My Reviews
               </NavLink>
             </li>
           </>
         )}
-        {/* shared nav links */}
-        <div className="divider"></div>
-        <li>
-          <NavLink to="/">
-            <FaHome></FaHome>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/order/salad">
-            <FaSearch></FaSearch>
-            Menu
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/order/contact">
-            <FaEnvelope></FaEnvelope>
-            Contact
-          </NavLink>
-        </li>
       </ul>
     </div>
   );

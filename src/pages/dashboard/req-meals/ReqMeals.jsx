@@ -4,19 +4,26 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 import useUpMeals from "../../../hooks/useUpMeals";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useAuth from "../../../hooks/useAuth";
+import { useEffect, useState } from "react";
 
 const ReqMeals = () => {
-  const [upMeals] = useUpMeals();
+  const { user } = useAuth();
 
   const axiosPublic = useAxiosPublic();
 
-  // const { data: reqMeals = [], refetch } = useQuery({
-  //   queryKey: ["upMeals"],
-  //   queryFn: async () => {
-  //     const res = await axiosPublic.get("/upcoming");
-  //     return res.data;
-  //   },
-  // });
+  const {
+    data: reqMeals,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["reqMeals", user?.email],
+    queryFn: () =>
+      axiosPublic.get(`/reqmeals?email=${user?.email}`).then((res) => res.data),
+    enabled: user != null,
+  });
+
+  console.log(reqMeals);
 
   const imageBodyTemplate = (meal) => {
     // console.log(user);
@@ -30,21 +37,21 @@ const ReqMeals = () => {
   };
 
   const actionBodyTemplate = (meal) => {
-    return "publish";
+    return "Cancel";
   };
 
   const header = (
     <div className="flex flex-wrap align-items-center justify-content-between gap-2">
-      <span className="text-xl text-900 font-bold">Upcoming Meals</span>
+      <span className="text-xl text-900 font-bold">Requested Meals</span>
     </div>
   );
   const footer = `In total there are ${
-    upMeals ? upMeals.length : 0
-  } Upcoming Meals.`;
+    reqMeals ? reqMeals.length : 0
+  } Requested Meals.`;
   return (
     <div className="card">
       <DataTable
-        value={upMeals}
+        value={reqMeals}
         header={header}
         footer={footer}
         tableStyle={{ minWidth: "60rem" }}
@@ -57,8 +64,7 @@ const ReqMeals = () => {
         ></Column>
         <Column field="likes_count" header=" Likes"></Column>
         <Column field="reviews" header="Reviews"></Column>
-        <Column field="distributor_name" header="Distributor Name"></Column>
-        <Column field="distributor_email" header="Distributor Email"></Column>
+        <Column field="status" header="Status"></Column>
         <Column header="Action" body={actionBodyTemplate}></Column>
       </DataTable>
     </div>

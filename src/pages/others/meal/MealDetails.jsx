@@ -22,11 +22,16 @@ const MealDetails = () => {
 
   // console.log(meals);
   const time = new Date();
+
   const handleRequestMeals = (meals) => {
-    console.log("CLicked", meals);
+    const email = user?.email;
+    const name = user?.displayName;
+
     const reqMealsData = {
       req_date: time,
       status: "pending",
+      req_email: email,
+      req_name: name,
       ...meals,
     };
 
