@@ -9,6 +9,7 @@ import MealDetails from "../pages/others/meal/MealDetails";
 import ManageUsers from "../pages/dashboard/manage-user/ManageUsers";
 import AddMeal from "../pages/dashboard/add-meal/AddMeal";
 import AllMeals from "../pages/dashboard/all-meals/AllMeals";
+import UpcomingMeals from "../pages/dashboard/upcoming-meals/UpcomingMeals";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
       {
         path: "allMeals",
         element: <AllMeals />,
+      },
+      {
+        path: "upcomingMeals",
+        element: <UpcomingMeals />,
       },
     ],
   },
