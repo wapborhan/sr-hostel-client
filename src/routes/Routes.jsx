@@ -13,6 +13,7 @@ import UpcomingMeals from "../pages/dashboard/upcoming-meals/UpcomingMeals";
 import UpComingMealsPage from "../pages/others/upcoming-meals/UpComingMealsPage";
 import ReqMeals from "../pages/dashboard/req-meals/ReqMeals";
 import UserProfile from "../pages/dashboard/user-profile/UserProfile";
+import ServeMeals from "../pages/dashboard/serv-meals/ServeMeals";
 
 export const router = createBrowserRouter([
   {
@@ -71,7 +72,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "serveMeals",
-        element: <AllMeals />,
+        element: <ServeMeals />,
       },
       {
         path: "upcomingMeals",
