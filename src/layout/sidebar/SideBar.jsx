@@ -11,14 +11,12 @@ import {
   FaUtensils,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-// import useCart from "../../hooks/useCart";
-// import useAdmin from "../../hooks/useAdmin";
+import useAdmin from "../../hooks/useAdmin";
 
 const SideBar = () => {
-  // const [cart] = useCart();
-  // const [isAdmin] = useAdmin();
-  // console.log(isAdmin);
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
+  console.log(isAdmin);
+  // const isAdmin = true;
   return (
     <div className="lg:w-64 md:w-64 lg:min-h-screen md:min-h-screen  bg-prime">
       <ul className="menu p-4 sticky top-0">

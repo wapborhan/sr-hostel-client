@@ -14,6 +14,8 @@ import UpComingMealsPage from "../pages/others/upcoming-meals/UpComingMealsPage"
 import ReqMeals from "../pages/dashboard/req-meals/ReqMeals";
 import UserProfile from "../pages/dashboard/user-profile/UserProfile";
 import ServeMeals from "../pages/dashboard/serv-meals/ServeMeals";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoutes from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -34,7 +36,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/meal/:id",
-        element: <MealDetails />,
+        element: (
+          <PrivateRoute>
+            <MealDetails />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3300/menu/${params.id}`),
       },
@@ -47,36 +53,68 @@ export const router = createBrowserRouter([
       // User Routes
       {
         path: "userProfile",
-        element: <UserProfile />,
+        element: (
+          <PrivateRoute>
+            <UserProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "reqMeals",
-        element: <ReqMeals />,
+        element: (
+          <PrivateRoute>
+            <ReqMeals />
+          </PrivateRoute>
+        ),
       },
       // Admin Routes
       {
         path: "adminProfile",
-        element: <UserProfile />,
+        element: (
+          <AdminRoutes>
+            <UserProfile />
+          </AdminRoutes>
+        ),
       },
       {
         path: "users",
-        element: <ManageUsers />,
+        element: (
+          <AdminRoutes>
+            <ManageUsers />
+          </AdminRoutes>
+        ),
       },
       {
         path: "addMeal",
-        element: <AddMeal />,
+        element: (
+          <AdminRoutes>
+            <AddMeal />
+          </AdminRoutes>
+        ),
       },
       {
         path: "allMeals",
-        element: <AllMeals />,
+        element: (
+          <AdminRoutes>
+            <AllMeals />
+          </AdminRoutes>
+        ),
       },
       {
         path: "serveMeals",
-        element: <ServeMeals />,
+        element: (
+          <AdminRoutes>
+            <ServeMeals />
+          </AdminRoutes>
+        ),
       },
       {
         path: "upcomingMeals",
-        element: <UpcomingMeals />,
+        element: (
+          <AdminRoutes>
+            <UpcomingMeals />
+          </AdminRoutes>
+        ),
       },
     ],
   },

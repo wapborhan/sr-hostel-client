@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialSignIn from "./SocialSignIn";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const SignIn = () => {
   const { logIn } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -15,7 +16,6 @@ const SignIn = () => {
     logIn(email, password)
       .then((result) => {
         const user = result.user;
-        navigate("/");
         // console.log(user);
         Swal.fire({
           title: "User Login Successful.",
@@ -26,7 +26,7 @@ const SignIn = () => {
             popup: "animate__animated animate__fadeOutUp",
           },
         });
-        // navigate(from, { replace: true });
+        navigate(location?.state ? location?.state : "/");
       })
       .catch((err) => {
         // console.error(err);
