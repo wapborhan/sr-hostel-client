@@ -1,9 +1,9 @@
 const Table = () => {
   return (
-    <table class="opening-hours table table-hover table-condensed borderless">
+    <table className="opening-hours table table-hover table-condensed borderless">
       <thead>
         <tr>
-          <th colspan="2" class="table-headline">
+          <th colSpan="2" className="table-headline">
             <span>Opening hours</span>
           </th>
         </tr>

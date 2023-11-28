@@ -2,8 +2,10 @@ import { useLoaderData } from "react-router-dom";
 import SectionCover from "../../../components/shared/section-cover/SectionCover";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const MealDetails = () => {
+  const axiosPublic = useAxiosPublic();
   const { user } = useAuth();
   const meals = useLoaderData();
   const {
@@ -19,9 +21,26 @@ const MealDetails = () => {
   } = meals;
 
   // console.log(meals);
-
+  const time = new Date();
   const handleRequestMeals = (meals) => {
     console.log("CLicked", meals);
+    const reqMealsData = {
+      req_date: time,
+      status: "pending",
+      ...meals,
+    };
+
+    axiosPublic.post("/reqmeals", reqMealsData).then((res) => {
+      if (res.status === 200) {
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Meals Request Sucessfull.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
   };
 
   const handleLoginFrist = () => {

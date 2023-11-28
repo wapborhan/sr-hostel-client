@@ -1,7 +1,10 @@
 import { useForm, Controller, useFieldArray } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const AddMeal = () => {
+  const axiosPublic = useAxiosPublic();
   const { user } = useAuth();
   const {
     register,
@@ -28,19 +31,19 @@ const AddMeal = () => {
       reviews: 0,
       ...data,
     };
-    // console.log(inputData);
-    fetch("http://localhost:3300/menu", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(inputData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log(data);
-        if (data.insertedId) {
-          reset();
-        }
-      });
+
+    axiosPublic.post("/menu", inputData).then((res) => {
+      if (res.status === 200) {
+        reset();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Meals Added Sucessfull.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
   };
 
   const onSubmitUpcomingMeal = (data) => {
@@ -54,18 +57,18 @@ const AddMeal = () => {
     };
     // console.log(inputData);
 
-    fetch("http://localhost:3300/upcoming", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(inputData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          reset();
-        }
-      });
+    axiosPublic.post("/upcoming", inputData).then((res) => {
+      if (res.status === 200) {
+        reset();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Upcoming Meals Added Sucessfull.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
   };
 
   return (

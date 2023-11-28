@@ -42,7 +42,13 @@ const NavBar = () => {
             {links}
           </ul>
         </div>
-        <a className="text-xl">SR Hostel</a>
+        <a className="text-xl">
+          <img
+            src="https://i.ibb.co/1LV8nQP/logo.png"
+            alt=""
+            className="w-48"
+          />
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menus gap-7 menu-horizontal px-1">{links}</ul>

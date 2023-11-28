@@ -1,6 +1,4 @@
 import useMenu from "../../../hooks/useMenu";
-// import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
 import MenuTab from "../../../pages/home/menu/MenuTab";
 import SectionCover from "../../../components/shared/section-cover/SectionCover";
 import { useEffect, useState } from "react";
@@ -29,7 +27,6 @@ const Meal = () => {
   }, [menu, searchInput, selectedCategory]);
 
   const handleSearchInputChange = (e) => {
-    // refetch();
     const input = e.target.value.toLowerCase();
     setSearchInput(input);
 
@@ -39,13 +36,11 @@ const Meal = () => {
     setFilteredMenu(filteredItems);
   };
   const handleCategoryChange = (e) => {
-    // refetch();
     const category = e.target.value;
     setSelectedCategory(category);
     filterMenu(searchInput, category);
   };
   const filterMenu = (search, category) => {
-    // refetch();
     // Filter menu based on the search input and selected category
     const filteredItems = menu.filter(
       (item) =>

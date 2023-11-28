@@ -18,7 +18,7 @@ const SideBar = () => {
   // const [cart] = useCart();
   // const [isAdmin] = useAdmin();
   // console.log(isAdmin);
-  const isAdmin = true;
+  const isAdmin = false;
   return (
     <div className="lg:w-64 md:w-64 lg:min-h-screen md:min-h-screen  bg-prime">
       <ul className="menu p-4 sticky top-0">

@@ -11,6 +11,7 @@ import AddMeal from "../pages/dashboard/add-meal/AddMeal";
 import AllMeals from "../pages/dashboard/all-meals/AllMeals";
 import UpcomingMeals from "../pages/dashboard/upcoming-meals/UpcomingMeals";
 import UpComingMealsPage from "../pages/others/upcoming-meals/UpComingMealsPage";
+import ReqMeals from "../pages/dashboard/req-meals/ReqMeals";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,12 @@ export const router = createBrowserRouter([
     path: "/dashboard",
     element: <Dash />,
     children: [
+      // User Routes
+      {
+        path: "reqMeals",
+        element: <ReqMeals />,
+      },
+      // Admin Routes
       {
         path: "users",
         element: <ManageUsers />,

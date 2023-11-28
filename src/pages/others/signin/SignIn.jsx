@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import SocialSignIn from "./SocialSignIn";
 import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const SignIn = () => {
   const { logIn } = useAuth();
@@ -16,28 +17,28 @@ const SignIn = () => {
         const user = result.user;
         navigate("/");
         // console.log(user);
-        // Swal.fire({
-        //   title: "User Login Successful.",
-        //   showClass: {
-        //     popup: "animate__animated animate__fadeInDown",
-        //   },
-        //   hideClass: {
-        //     popup: "animate__animated animate__fadeOutUp",
-        //   },
-        // });
+        Swal.fire({
+          title: "User Login Successful.",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
         // navigate(from, { replace: true });
       })
       .catch((err) => {
         // console.error(err);
-        //   Swal.fire({
-        //     title: err,
-        //     showClass: {
-        //       popup: "animate__animated animate__fadeInDown",
-        //     },
-        //     hideClass: {
-        //       popup: "animate__animated animate__fadeOutUp",
-        //     },
-        //   });
+        Swal.fire({
+          title: err,
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
       });
   };
 
@@ -46,7 +47,9 @@ const SignIn = () => {
       <div className="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:flex-1 lg:max-w-screen-md">
         <div className="p-4 py-6 text-white bg-blue-500 md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly">
           <div className="my-3 text-4xl font-bold tracking-wider text-center">
-            <Link to="/">SR Hostel</Link>
+            <Link to="/">
+              <img src="https://i.ibb.co/1LV8nQP/logo.png" alt="" />
+            </Link>
           </div>
           <p className="mt-6 font-normal text-center text-gray-300 md:mt-0">
             With the power of K-WD, you can now focus only on functionaries for
