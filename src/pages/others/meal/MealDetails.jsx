@@ -5,10 +5,13 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import moment from "moment/moment";
 import { Rating } from "primereact/rating";
+import useSubscription from "../../../hooks/useSubscription";
 
 const MealDetails = () => {
   const axiosPublic = useAxiosPublic();
   const { user } = useAuth();
+  const [isSubscribe] = useSubscription();
+  console.log(isSubscribe);
   const meals = useLoaderData();
   const {
     meal_title,
@@ -37,18 +40,25 @@ const MealDetails = () => {
       req_name: name,
       ...meals,
     };
-
-    axiosPublic.post("/reqmeals", reqMealsData).then((res) => {
-      if (res.status === 200) {
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Meals Request Sucessfull.",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    });
+    if (isSubscribe) {
+      axiosPublic.post("/reqmeals", reqMealsData).then((res) => {
+        if (res.status === 200) {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Meals Request Sucessfull.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "You should buy any package",
+        // footer: '<a href="/signin">Go to Login Page</a>',
+      });
+    }
   };
 
   const handleLoginFrist = () => {
@@ -101,9 +111,7 @@ const MealDetails = () => {
                     cancel={false}
                     pt={{
                       onIcon: { className: "text-prime" },
-                      officon: {
-                        className: "text-prime",
-                      },
+                      officon: { className: "text-prime" },
                     }}
                   />
                 </h4>
