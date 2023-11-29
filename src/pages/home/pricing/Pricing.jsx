@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import { useQuery } from "@tanstack/react-query";
+
 const priceData = [
   {
     id: 1,
@@ -44,16 +43,6 @@ const priceData = [
 ];
 
 const Pricing = () => {
-  // const axiosPublic = useAxiosPublic();
-
-  // const { data: priceData = [], refetch } = useQuery({
-  //   queryKey: ["priceData"],
-  //   queryFn: async () => {
-  //     const res = await axiosPublic.get("/menu");
-  //     return res.data;
-  //   },
-  // });
-
   return (
     <>
       <main className="max-w-6xl mx-auto pt-10 pb-36 px-8">

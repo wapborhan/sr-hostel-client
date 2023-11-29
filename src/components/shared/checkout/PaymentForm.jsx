@@ -4,6 +4,8 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import usePricing from "../../../hooks/usePricing";
+import useAdmin from "../../../hooks/useAdmin";
+import { useNavigate } from "react-router-dom";
 
 const PaymentForm = ({ userPackage }) => {
   const [error, setError] = useState("");
@@ -14,9 +16,8 @@ const PaymentForm = ({ userPackage }) => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const [priceData] = usePricing(userPackage);
-  // const navigate = useNavigate();
-
-  console.log(priceData?.price);
+  const [isAdmin] = useAdmin();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axiosSecure
@@ -76,42 +77,54 @@ const PaymentForm = ({ userPackage }) => {
         // now save the payment in the database
         const payment = {
           email: user.email,
-
+          price: priceData?.price,
+          subscription: priceData?.path,
           transactionId: paymentIntent.id,
           date: new Date(), // utc date convert. use moment js to
-
           status: "pending",
         };
 
         const res = await axiosSecure.post("/payments", payment);
-        console.log("payment saved", res.data);
+        console.log("payment saved", res);
         // refetch();
-        if (res.data?.paymentResult?.insertedId) {
+
+        if (res.status === 200) {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Thank you for the taka paisa",
+            title: "Thank you for Purchase Plans",
             showConfirmButton: false,
             timer: 1500,
           });
-          // navigate("/dashboard/paymentHistory");
+          {
+            user && isAdmin
+              ? navigate("/dashboard/userProfile")
+              : navigate("/dashboard/adminProfile");
+          }
         }
       }
     }
   };
+
   return (
-    <div className="max-w-7xl mx-auto py-5 border-2 my-5">
-      <div className="max-w-xl mx-auto">
+    <div className="w-full mx-auto bg-prime shadow-xl rounded-3xl ">
+      <div className=" mx-auto p-10">
         <form onSubmit={handleSubmit}>
           <CardElement
             options={{
               style: {
                 base: {
+                  iconColor: "#000",
+                  color: "#fff",
+                  fontWeight: "500",
+                  fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
                   fontSize: "16px",
-                  border: "1px solid red !important",
-                  color: "#424770",
+                  fontSmoothing: "antialiased",
+                  ":-webkit-autofill": {
+                    color: "#fce883",
+                  },
                   "::placeholder": {
-                    color: "#aab7c4",
+                    color: "#000",
                   },
                 },
                 invalid: {

@@ -1,8 +1,10 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import useAdmin from "../../hooks/useAdmin";
 
 const NavBardEnd = () => {
   const { user, logOut } = useAuth();
+  const [isAdmin] = useAdmin();
   const navigate = useNavigate();
 
   const handleSignOut = () => {
@@ -54,9 +56,16 @@ const NavBardEnd = () => {
                   {user?.displayName}
                 </div>
               </li>
-              <li>
-                <NavLink to="/dashboard">Dashboard</NavLink>
-              </li>
+              {user && isAdmin && (
+                <li>
+                  <NavLink to="/dashboard/adminProfile">Dashboard</NavLink>
+                </li>
+              )}
+              {user && !isAdmin && (
+                <li>
+                  <NavLink to="/dashboard/userProfile">Dashboard</NavLink>
+                </li>
+              )}
               <li>
                 <a onClick={handleSignOut}>Logout</a>
               </li>
