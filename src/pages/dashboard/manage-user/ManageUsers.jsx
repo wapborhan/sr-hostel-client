@@ -1,16 +1,18 @@
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import { Button } from "primereact/button";
 import { Tag } from "primereact/tag";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ManageUsers = () => {
   // const [users, setProducts] = useState([]);
   const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
-  const { data: users = [] } = useQuery({
+  const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosPublic.get("/user");
@@ -19,7 +21,6 @@ const ManageUsers = () => {
   });
 
   const imageBodyTemplate = (user) => {
-    // console.log(user);
     return (
       <img
         src={user.photo}
@@ -30,7 +31,38 @@ const ManageUsers = () => {
   };
 
   const roleBodyTemplate = (user) => {
-    return <Tag value={user.role} severity={getSeverity(user)}></Tag>;
+    const handleMakeAdmin = (user) => {
+      console.log("clicked", user);
+      axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          refetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${user.name} is an Admin Now!`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+    };
+    const adminIs = user?.role === "admin";
+
+    return (
+      <>
+        {adminIs ? (
+          <Tag value={user.role} severity={getSeverity(user)}></Tag>
+        ) : (
+          <Tag
+            value={user.role}
+            onClick={() => handleMakeAdmin(user)}
+            severity={getSeverity(user)}
+            className="cursor-pointer"
+          ></Tag>
+        )}
+      </>
+    );
   };
   const actionBodyTemplate = (user) => {
     return "Edit";

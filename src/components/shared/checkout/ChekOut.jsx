@@ -10,8 +10,6 @@ const ChekOut = () => {
   const { userPackage } = useParams();
   const [priceData] = usePricing();
 
-  console.log(priceData);
-
   return (
     <div>
       <SectionCover title={`Selected Package "${userPackage}"`} />

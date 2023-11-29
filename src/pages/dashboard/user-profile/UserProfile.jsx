@@ -1,9 +1,8 @@
+import moment from "moment";
 import useAuth from "../../../hooks/useAuth";
 
 const UserProfile = () => {
   const { user } = useAuth();
-
-  console.log(user);
 
   return (
     <div className="container max-w-7xl lg:mx-auto px-5 my-6">
@@ -23,7 +22,7 @@ const UserProfile = () => {
               className="rounded-full border-2 h-48 w-48 lg:absolute lg:pin-l lg:pin-t lg:-mt-48 ml-7 "
             />
           </div>
-          <div className="w-full lg:w-1/2 py-5 lg:ml-0 ml-10 grid grid-cols-2 justify-center">
+          <div className="w-full lg:w-1/2 py-8 lg:ml-0 ml-10 grid grid-cols-2 justify-center">
             <div className="flex flex-col gap-3">
               <span href="#" className="font-bold text-2xl">
                 {user?.displayName}
@@ -31,19 +30,24 @@ const UserProfile = () => {
               <span href="#" className="">
                 {user?.email}
               </span>
-              <span className="text-teal">
-                Acount Create: <br />
-                {user?.metadata?.creationTime}
-              </span>
-              <span className="text-teal">
-                Last Login: <br /> {user?.metadata?.lastSignInTime}
-              </span>
             </div>
           </div>
           <div className="right">
-            <div className="role">Role</div>
-            <div className="badge">
-              <h2>Badge</h2>
+            <div className="role">
+              <span className="text-teal">
+                Acount Create: <br />
+                {moment(user?.metadata?.creationTime).format(
+                  "Do MMMM  YYYY, h:mm:ss a"
+                )}
+              </span>
+            </div>
+            <div className="date">
+              <span className="text-teal">
+                Last Login: <br />
+                {moment(user?.metadata?.lastSignInTime).format(
+                  "Do MMMM  YYYY, h:mm:ss a"
+                )}
+              </span>
             </div>
           </div>
         </div>

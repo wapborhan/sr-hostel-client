@@ -6,7 +6,6 @@ import useMenu from "../../../hooks/useMenu";
 
 const AllMeals = () => {
   const [menu] = useMenu();
-  console.log(menu);
 
   const imageBodyTemplate = (meal) => {
     // console.log(user);

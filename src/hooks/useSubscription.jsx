@@ -14,7 +14,6 @@ const useSubscription = () => {
       return res?.data?.subscription;
     },
   });
-  console.log(isSubscribe);
   return [isSubscribe, isisSubscribeLoading];
 };
 
