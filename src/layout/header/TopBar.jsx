@@ -9,9 +9,9 @@ import {
 
 const TopBar = () => {
   return (
-    <div className="lg:py-4 lg:flex hidden  mx-auto bg-transparent">
+    <div className="lg:py-4 lg:block justify-between  hidden  mx-auto bg-transparent">
       <div className="flex justify-between text-white">
-        <div className="info flex gap-5 lg:flex-row justify-center items-center flex-col w-full">
+        <div className="info flex gap-4">
           <h2 className="flex items-center ">
             <span className="mr-3">
               <FaPhoneAlt />
@@ -25,7 +25,7 @@ const TopBar = () => {
             admin@srhostel.com
           </h2>
         </div>
-        <div className="social lg:block hidden">
+        <div className="social">
           <ul className="flex gap-2">
             <li>
               <FaFacebookSquare />

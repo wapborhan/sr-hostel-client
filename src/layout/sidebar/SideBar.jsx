@@ -48,12 +48,12 @@ const SideBar = () => {
                 All meals
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink to="/dashboard/allReviews">
                 <FaBook></FaBook>
                 All reviews
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink to="/dashboard/serveMeals">
                 <FaShoppingCart></FaShoppingCart>
