@@ -17,6 +17,7 @@ import ServeMeals from "../pages/dashboard/serv-meals/ServeMeals";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoutes from "./AdminRoute";
 import ChekOut from "../components/shared/checkout/ChekOut";
+import UpdateMeals from "../pages/dashboard/update-meals/UpdateMeals";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,7 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:3300/menu/${params.id}`),
       },
+
       {
         path: "/checkout/:userPackage",
         element: (
@@ -104,6 +106,12 @@ export const router = createBrowserRouter([
             <AllMeals />
           </AdminRoutes>
         ),
+      },
+      {
+        path: "allMeals/update/:id",
+        element: <UpdateMeals />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3300/menu/${params.id}`),
       },
       {
         path: "serveMeals",

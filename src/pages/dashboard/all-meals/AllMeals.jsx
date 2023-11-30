@@ -1,6 +1,6 @@
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import { Tag } from "primereact/tag";
+// import { Tag } from "primereact/tag";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import useMenu from "../../../hooks/useMenu";
 import { NavLink } from "react-router-dom";
@@ -61,7 +61,7 @@ const AllMeals = () => {
           <FaRegEye />
         </NavLink>
         <NavLink
-          to={`/meal/${meal?._id}`}
+          to={`/dashboard/allMeals/update/${meal?._id}`}
           className="btn-sm btn btn-outline btn-success"
         >
           <FaEdit />
