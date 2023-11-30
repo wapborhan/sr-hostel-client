@@ -101,7 +101,7 @@ const ManageUsers = () => {
         <Column field="badge" header="Badge"></Column>
         <Column field="subscription" header="Subscription"></Column>
         <Column header="Role" body={roleBodyTemplate}></Column>
-        <Column header="Action" body={actionBodyTemplate}></Column>
+        {/* <Column header="Action" body={actionBodyTemplate}></Column> */}
       </DataTable>
     </div>
   );
