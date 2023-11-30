@@ -8,8 +8,6 @@ const UpdateMeals = () => {
   const meals = useLoaderData();
   const axiosPublic = useAxiosPublic();
 
-  // console.log(meals);
-
   const {
     register,
     handleSubmit,

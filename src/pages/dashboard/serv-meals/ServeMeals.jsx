@@ -4,6 +4,7 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const ServeMeals = () => {
   const { user } = useAuth();
@@ -12,6 +13,7 @@ const ServeMeals = () => {
 
   const {
     data: servMeals,
+    refetch,
     // isLoading,
     // isError,
   } = useQuery({
@@ -20,10 +22,7 @@ const ServeMeals = () => {
     enabled: user != null,
   });
 
-  console.log(servMeals);
-
   const imageBodyTemplate = (meal) => {
-    // console.log(user);
     return (
       <img
         src={meal?.meal_image}
@@ -34,7 +33,50 @@ const ServeMeals = () => {
   };
 
   const actionBodyTemplate = (meal) => {
-    return "Serve";
+    console.log(meal?.status);
+    const handleServed = (id) => {
+      const inputData = { status: "delivared" };
+      axiosPublic.patch(`/reqmeals/${id}`, inputData).then((res) => {
+        if (res.status === 200) {
+          refetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Delivared Sucessfull.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+    };
+    const handleAlreadyDelivered = () => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Already Delivared",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    };
+    return (
+      <>
+        {meal?.status === "pending" ? (
+          <button
+            onClick={() => handleServed(meal?._id)}
+            className="btn btn-sm btn-outline btn-warning"
+          >
+            Serve
+          </button>
+        ) : (
+          <button
+            onClick={handleAlreadyDelivered}
+            className="btn btn-sm btn-outline btn-error"
+          >
+            Serve
+          </button>
+        )}
+      </>
+    );
   };
 
   const header = (
@@ -62,7 +104,7 @@ const ServeMeals = () => {
         ></Column>
         <Column field="req_name" header="Requester Name"></Column>
         <Column field="req_email" header="Requester Email"></Column>
-        <Column field="status" header="Status"></Column>
+        <Column field="status" className="capitalize" header="Status"></Column>
         <Column header="Action" body={actionBodyTemplate}></Column>
       </DataTable>
     </div>
