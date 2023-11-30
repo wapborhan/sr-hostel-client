@@ -1,20 +1,18 @@
 import { NavLink } from "react-router-dom";
 
 const MenuCard = ({ menu }) => {
-  const { _id, meal_title, price, description, rating } = menu;
+  const { _id, meal_title, price, description, rating, meal_image } = menu;
+
   return (
-    <div className="card w-96 bg-base-100 text-black shadow-xl">
-      <figure>
-        <img
-          src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-          alt="Shoes"
-        />
+    <div className="card lg:w-96 bg-base-100 text-black shadow-xl">
+      <figure className="h-48 border-b-2">
+        <img src={meal_image} alt={meal_title} />
       </figure>
       <div className="card-body">
         <div className="flex">
           <div className="desc space-y-4">
             <h2 className="card-title">{meal_title}</h2>
-            <p>{description}</p>
+            <p>{description.slice(0, 90)}</p>
           </div>
           <div className="price items-center">
             <span>${price}</span>

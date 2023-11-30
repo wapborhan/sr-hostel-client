@@ -51,7 +51,7 @@ const UpdateMeals = () => {
 
         <form>
           <div className="form  lg:mx-40 mx-5 my-6 space-y-4">
-            <div className="frist flex gap-5 justify-between">
+            <div className="frist flex lg:flex-row flex-col gap-5 justify-between">
               <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text font-bold">Meal Picture URL</span>
@@ -86,7 +86,7 @@ const UpdateMeals = () => {
               </div>
             </div>
 
-            <div className="frist flex gap-5 justify-between">
+            <div className="frist flex lg:flex-row flex-col gap-5 justify-between">
               <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text font-bold">Meal Category</span>

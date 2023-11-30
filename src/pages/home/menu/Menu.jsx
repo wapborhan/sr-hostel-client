@@ -12,7 +12,7 @@ const Menu = () => {
   const dinner = menu.filter((item) => item.meal_category === "dinner");
   return (
     <div className="menu-bg bg-fixed bg-no-repeat bg-cover text-white pt-8 my-20">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl lg:px-0 px-5 mx-auto">
         <SectionTitle title="Chef Recommends Menu" />
         <Tabs>
           <TabList>

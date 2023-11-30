@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosPublic = axios.create({
-  baseURL: "http://localhost:3300",
+  baseURL: import.meta.env.VITE_BASE_URL,
 });
 
 const useAxiosPublic = () => {

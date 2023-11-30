@@ -72,7 +72,7 @@ const AddMeal = () => {
   };
 
   return (
-    <div className="container max-w-7xl mx-auto">
+    <div className="container max-w-7xl lg:mx-auto">
       <div className="sect w-full mx-auto">
         <div className="content">
           <h2 className="text-center text-3xl"> Add Meal</h2>
@@ -80,7 +80,7 @@ const AddMeal = () => {
 
         <form>
           <div className="form  lg:mx-40 mx-5 my-6 space-y-4">
-            <div className="frist flex gap-5 justify-between">
+            <div className="frist flex lg:flex-row flex-col gap-5 justify-between">
               <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text font-bold">Meal Picture URL</span>
@@ -113,7 +113,7 @@ const AddMeal = () => {
               </div>
             </div>
 
-            <div className="frist flex gap-5 justify-between">
+            <div className="frist flex lg:flex-row flex-col gap-5 justify-between">
               <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text font-bold">Meal Category</span>
@@ -185,7 +185,7 @@ const AddMeal = () => {
                   <span className="label-text font-bold">Ingredients</span>
                 </label>
 
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid lg:grid-cols-3 grid-cols-1 gap-3">
                   {fields.map((item, index) => (
                     <div key={item.id} className="flex gap-3">
                       <Controller

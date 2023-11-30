@@ -13,7 +13,9 @@ const Services = () => {
             lacinia bibend,um nulla sed consectetur. Vivamus sagittis lacus.
           </div>
           <div className="stat-desc text-xl">
-            <NavLink className="underline">More</NavLink>
+            <NavLink to="/meal" className="underline">
+              More
+            </NavLink>
           </div>
         </div>
 
@@ -26,7 +28,9 @@ const Services = () => {
             lacinia bibend,um nulla sed consectetur. Vivamus sagittis lacus.
           </div>
           <div className="stat-desc text-xl">
-            <NavLink className="underline">More</NavLink>
+            <NavLink to="/meal" className="underline">
+              More
+            </NavLink>
           </div>
         </div>
 
@@ -39,7 +43,9 @@ const Services = () => {
             lacinia bibend,um nulla sed consectetur. Vivamus sagittis lacus.
           </div>
           <div className="stat-desc text-xl">
-            <NavLink className="underline">More</NavLink>
+            <NavLink to="/meal" className="underline">
+              More
+            </NavLink>
           </div>
         </div>
       </div>

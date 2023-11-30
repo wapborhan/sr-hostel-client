@@ -19,10 +19,10 @@ const UserProfile = () => {
             <img
               src={user?.photoURL}
               alt="logo"
-              className="rounded-full border-2 h-48 w-48 lg:absolute lg:pin-l lg:pin-t lg:-mt-48 ml-7 "
+              className="rounded-full border-2 h-48 w-48 lg:absolute lg:pin-l lg:pin-t lg:-mt-48 -mt-24 ml-7 "
             />
           </div>
-          <div className="w-full lg:w-1/2 py-8 lg:ml-0 ml-10 grid grid-cols-2 justify-center">
+          <div className="w-full lg:w-1/2 py-8 lg:ml-0 ml-10 grid lg:grid-cols-2 justify-center">
             <div className="flex flex-col gap-3">
               <span href="#" className="font-bold text-2xl">
                 {user?.displayName}
@@ -32,7 +32,7 @@ const UserProfile = () => {
               </span>
             </div>
           </div>
-          <div className="right">
+          <div className="right lg:px-0 pb-5 px-5">
             <div className="role">
               <span className="text-teal">
                 Acount Create: <br />

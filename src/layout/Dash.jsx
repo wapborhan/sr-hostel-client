@@ -12,7 +12,7 @@ const Dash = () => {
         <div className="bg-prime mb-10">
           <NavBar />
         </div>
-        <div className="px-8">
+        <div className="lg:px-8 px-3">
           <Outlet></Outlet>
         </div>
       </div>

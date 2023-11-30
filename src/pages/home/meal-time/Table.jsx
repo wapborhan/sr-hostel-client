@@ -1,10 +1,13 @@
-const Table = () => {
+const Table = ({ item }) => {
   return (
     <table className="opening-hours table table-hover table-condensed borderless">
       <thead>
         <tr>
-          <th colSpan="2" className="table-headline">
-            <span>Opening hours</span>
+          <th
+            colSpan="2"
+            className="table-headline text-white text-2xl font-courgette"
+          >
+            <span>{item?.time}</span>
           </th>
         </tr>
       </thead>

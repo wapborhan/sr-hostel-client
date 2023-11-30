@@ -71,9 +71,9 @@ const MealDetails = () => {
   return (
     <div>
       <SectionCover title={meal_title} />
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-5 my-8 gap-6">
-          <div className="col-span-3">
+      <div className="max-w-7xl lg:mx-auto mx-5">
+        <div className="grid lg:grid-cols-5 grid-cols-1 my-8 gap-6">
+          <div className="lg:col-span-3">
             <div className="image mb-5">
               <img src={meal_image} alt="" className="rounded-md h-52 w-full" />
             </div>
@@ -93,7 +93,7 @@ const MealDetails = () => {
             </div>
             <div className="desc mt-5">{description}</div>
           </div>
-          <div className="col-span-2">
+          <div className="lg:col-span-2">
             <div className="desc space-y-3">
               <h2 className="text-3xl font-courgette">{meal_title}</h2>
               <h3>
@@ -103,7 +103,7 @@ const MealDetails = () => {
                 Category: <b>{meal_category}</b>
               </h2>
               <h4 className="rate">Price: {price} $</h4>
-              <div className="flex gap-32">
+              <div className="flex lg:flex-row flex-col gap-5 lg:gap-32">
                 <h4 className="rate flex gap-4">
                   Ratings:
                   <Rating

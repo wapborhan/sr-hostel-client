@@ -66,7 +66,7 @@ const Meal = () => {
     <>
       <SectionCover title="Chef Recommends Menu" />
       <div className="menu-bg bg-fixed bg-no-repeat bg-cover text-white pt-8">
-        <div className="search flex gap-5 justify-center mx-auto my-4">
+        <div className="search flex lg:flex-row flex-col gap-5 justify-center lg:mx-auto mx-5 my-4">
           <input
             type="text"
             placeholder="Search by meal title..."
@@ -84,7 +84,7 @@ const Meal = () => {
             <option value="lunch">Lunch</option>
             <option value="dinner">Dinner</option>
           </select>
-          <div className="price-filter">
+          <div className="price-filter flex lg:flex-row flex-col">
             <label>
               Min Price:
               <input
@@ -103,10 +103,15 @@ const Meal = () => {
                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200  text-black"
               />
             </label>
-            <button onClick={applyFilters}>Apply Filters</button>
+            <button
+              className="btn btn-outline btn-warning mt-3"
+              onClick={applyFilters}
+            >
+              Apply Filters
+            </button>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl lg:mx-auto mx-5">
           <MenuTab items={filteredMenu}></MenuTab>
         </div>
       </div>

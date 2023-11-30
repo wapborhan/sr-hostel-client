@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
         path: "/meal/:id",
         element: <MealDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3300/menu/${params.id}`),
+          fetch(`${import.meta.env.VITE_BASE_URL}/menu/${params.id}`),
       },
 
       {
@@ -111,7 +111,7 @@ export const router = createBrowserRouter([
         path: "allMeals/update/:id",
         element: <UpdateMeals />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3300/menu/${params.id}`),
+          fetch(`${import.meta.env.VITE_BASE_URL}/menu/${params.id}`),
       },
       {
         path: "serveMeals",

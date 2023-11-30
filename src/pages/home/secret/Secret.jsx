@@ -1,7 +1,7 @@
 const Secret = () => {
   return (
-    <div className="max-w-7xl mx-auto mt-20 mb-20">
-      <div className="grid grid-cols-2 gap-8">
+    <div className="max-w-7xl  mx-5 lg:mx-auto mt-20 mb-20">
+      <div className="grid lg:grid-cols-2 grid-cols-1 gap-8">
         <div className="left flex justify-center items-center gap-8">
           <div className="circle">
             <img src="https://i.ibb.co/D1NbwCr/service-1.jpg" alt="" />
@@ -19,7 +19,7 @@ const Secret = () => {
             pharetra augue. Donec sed odio dui.Integer posuere erat a ante
             venenatis.
           </p>
-          <button className="btn btn-outline btn-warning">Learn More</button>
+          {/* <button className="btn btn-outline btn-warning">Learn More</button> */}
         </div>
       </div>
     </div>
