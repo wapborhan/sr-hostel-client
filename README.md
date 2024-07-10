@@ -27,14 +27,15 @@
 <br/><br/>
 
 ### 🔹 Technologies Used Server Side
--Node Js
--Express Js
--MongoDB
+ - Node Js
+ - Express Js
+ - MongoDB
+   
 <br/><br/>
 
 ### 🔹 Hosting: 
--Server Sede Hosting: Vercel<br/>
--Client Side Hosting: Firebase
+  - Server Sede Hosting: Vercel<br/>
+  - Client Side Hosting: Firebase
 <br/><br/>
 
 ### 🔹 Project Features:
