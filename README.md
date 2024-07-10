@@ -6,10 +6,10 @@
 🔹 Project Name: SR Hostel <br/>
 🔹 Project Live Link: https://sr-hostel.web.app/
 <br/><br/>
-###🔹 Project overview: 
+### 🔹 Project overview: 
 <br/><br/>
 
-###🔹 Technology Used Client Side:
+### 🔹 Technology Used Client Side:
 - Tailwind CSS
 - Daisyui
 - React router dom
@@ -33,7 +33,7 @@
 <br/><br/>
 
 ### 🔹 Hosting: 
--Server Sede Hosting: Vercel
+-Server Sede Hosting: Vercel<br/>
 -Client Side Hosting: Firebase
 <br/><br/>
 
