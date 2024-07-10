@@ -2,14 +2,14 @@
 
 
 🚀 I am excited to share my latest project
-
-🔹 Project Name: SR Hostel
+<br/>
+🔹 Project Name: SR Hostel <br/>
 🔹 Project Live Link: https://sr-hostel.web.app/
+<br/><br/>
+###🔹 Project overview: 
+<br/><br/>
 
-🔹 Project overview: 
-
-
-🔹 Technology Used Client Side:
+###🔹 Technology Used Client Side:
 - Tailwind CSS
 - Daisyui
 - React router dom
@@ -24,23 +24,25 @@
 - React tabs
 - Sweetalert2
 - Swiper SLider
+<br/><br/>
 
-
-🔹 Technologies Used Server Side
+### 🔹 Technologies Used Server Side
 -Node Js
 -Express Js
 -MongoDB
+<br/><br/>
 
-🔹 Hosting: 
+### 🔹 Hosting: 
 -Server Sede Hosting: Vercel
 -Client Side Hosting: Firebase
+<br/><br/>
 
-🔹 Project Features:
+### 🔹 Project Features:
 
 1. App
+<br/><br/>
 
-
-🔹 Project Skills:
+### 🔹 Project Skills:
 1. React.js
 3. Node.js
 4. Express.js
